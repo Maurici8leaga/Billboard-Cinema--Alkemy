@@ -52,8 +52,9 @@ function Login() {
                     title: "Okey, you are ready",
                     icon: "success"
                 });
-                console.log(res.data);
-                // este resultado nos dara el TOKEN del user
+                const tokenInbound = res.data.token;
+                localStorage.setItem('token', tokenInbound);
+                    // 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
             })
     }
 
