@@ -1,4 +1,5 @@
 // import { renderHook } from "@testing-library/react";
+import axios from 'axios';
 
 function Login() {
 
@@ -25,13 +26,21 @@ function Login() {
             return;
         }
 
-        if (email !== 'maoa2000@gmail.com' || password !== 'react'){
+        if (email !== 'challenge@alkemy.org' || password !== 'react'){
             console.log('invalid credentials');
         }
         
         console.log('Ok we are ready to send the info');
         // <-----------    -------------------------> 
 
+        // <----  envio de datos al API (peticiones http) ---> 
+
+            // esto podria ir en un folder llamado actions y convertir esto dentro una funcion y ser llamada aca como un accion
+        axios
+            .post('http://challenge-react.alkemy.org/', {email, password})
+            .then(res => {
+                console.log(res.data);
+            })
     }
 
 
