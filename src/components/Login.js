@@ -1,5 +1,6 @@
-// import { renderHook } from "@testing-library/react";
 import axios from 'axios';
+import swAlert from '@sweetalert/with-react';
+// esta es una libreria que te ayuda con los alerts
 
 function Login() {
 
@@ -16,21 +17,28 @@ function Login() {
 
 
         if(email === '' || password === ''){
-            console.log('the fields must not be empty');
+            swAlert({
+                title: "The fields must not be empty",
+                icon: "warning"
+            });
             // al colocarle el return da prioridad a este if statement si no se cumple no pasara a otro if si es que llega haber otro
             return;
         }
 
         if(email !== '' && !regexEmail.test(email)){
-            console.log('you should type a valid email');
+            swAlert({
+                title: "You should type a valid email",
+                icon: "warning"
+            });
             return;
         }
 
         if (email !== 'challenge@alkemy.org' || password !== 'react'){
-            console.log('invalid credentials');
+            swAlert({
+                title: "invalid credentials",
+                icon: "error"
+            });
         }
-        
-        console.log('Ok we are ready to send the info');
         // <-----------    -------------------------> 
 
         // <----  envio de datos al API (peticiones http) ---> 
@@ -38,8 +46,14 @@ function Login() {
             // esto podria ir en un folder llamado actions y convertir esto dentro una funcion y ser llamada aca como un accion
         axios
             .post('http://challenge-react.alkemy.org/', {email, password})
+                // el link proporcionado es un simulador de un API el cual este viene del curso
             .then(res => {
+                swAlert({
+                    title: "Okey, you are ready",
+                    icon: "success"
+                });
                 console.log(res.data);
+                // este resultado nos dara el TOKEN del user
             })
     }
 
