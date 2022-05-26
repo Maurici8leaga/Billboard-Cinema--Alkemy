@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
 
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -60,7 +60,7 @@ function Login() {
                 // 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
 
                 // redirect after login
-                history("/list");
+                navigate("/list");
             })
     }
 
