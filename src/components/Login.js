@@ -2,6 +2,7 @@ import axios from 'axios';
 import swAlert from '@sweetalert/with-react';
 // esta es una libreria que te ayuda con los alerts
 import { useNavigate } from 'react-router-dom';
+import '../css/style.css';
 
 function Login() {
 
@@ -66,23 +67,25 @@ function Login() {
 
 
     return (
-        <>
+        <div className=" container-form mt-5">
+            <div className="content-wrap">
 
-            <h2>Formulario</h2>
-            <form onSubmit={submitHandler}>
-                <label>
-                    <span>Correo Electronico:</span> <br />
-                    <input type="text" name="email" />
-                </label>
-                <br />
-                <label>
-                    <span>Contraseña:</span> <br />
-                    <input type="password" name="password" />
-                </label>
-                <br />
-                <button type="submit">Ingresar</button>
-            </form>
-        </>
+                <h2 className="text-center mb-3">Formulario Login</h2>
+                <form onSubmit={submitHandler}>
+                    <div className="mb-3">
+                        <label className="form-label">Correo Electronico:</label>
+                        <input type="email" className="form-control" id="email" />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Contraseña:</label>
+                        <input type="password" className="form-control" id="password" />
+                    </div>
+
+                    <button type="submit" className="btn btn-success">Ingresar</button>
+                </form>
+            </div>
+        </div>
     )
 }
 

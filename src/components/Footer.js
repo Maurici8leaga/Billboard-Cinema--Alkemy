@@ -1,16 +1,15 @@
-function Footer(){
+import '../css/style.css';
+
+function Footer() {
     return (
-        <footer>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="https://www.instagram.com/" rel="noopener noreferrer"> IG</a>
-                        {/* en el footer queremos colocar links que nos redireccionen a otras paginas que no estan el proyecto si deben usar el element "a con sus elementos href y rel" */}
-                                                {/* el elemento "noopener noreferrer" es para indicar que este link no llevara seguimiento */}
-                    </li>
-                </ul>
+        <footer className="footer">
+            <nav className="">
+                <div className="row ">
+                    <div className="col-xs-12 text-center">
+                        <p className="text-muted">Copyright Alkemy Challenge</p>
+                    </div>
+                </div>
             </nav>
-            <p>Copyright Alkemy Challenge</p>
         </footer>
     )
 }
