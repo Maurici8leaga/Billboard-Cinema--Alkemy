@@ -1,7 +1,7 @@
 import axios from 'axios';
 import swAlert from '@sweetalert/with-react';
 // esta es una libreria que te ayuda con los alerts
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import '../css/style.css';
 
 function Login() {
@@ -66,27 +66,37 @@ function Login() {
             })
     }
 
+    // if the user is already loged, then
+    const token = localStorage.getItem('token');
+    // este const es solo para usarlo en verificacion y proteccion de la ruta
+
 
     return (
-        <div className=" container-form mt-5">
-            <div className="content-wrap">
+        <>
 
-                <h2 className="text-center mb-3">Formulario Login</h2>
-                <form onSubmit={submitHandler}>
-                    <div className="mb-3">
-                        <label className="form-label">Correo Electronico:</label>
-                        <input type="email" className="form-control" id="email" />
-                    </div>
+        {/* de esta forma se protege la ruta, de manera que si no se tiene token no entre al component */}
+        {token && <Navigate to="/list"/>}
 
-                    <div className="mb-3">
-                        <label className="form-label">Contraseña:</label>
-                        <input type="password" className="form-control" id="password" />
-                    </div>
+            <div className=" container-form mt-5">
+                <div className="content-wrap">
 
-                    <button type="submit" className="btn btn-success">Ingresar</button>
-                </form>
+                    <h2 className="text-center mb-3">Formulario Login</h2>
+                    <form onSubmit={submitHandler}>
+                        <div className="mb-3">
+                            <label className="form-label">Correo Electronico:</label>
+                            <input type="email" className="form-control" id="email" />
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Contraseña:</label>
+                            <input type="password" className="form-control" id="password" />
+                        </div>
+
+                        <button type="submit" className="btn btn-success">Ingresar</button>
+                    </form>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
