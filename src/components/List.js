@@ -1,4 +1,6 @@
 import { Link, Navigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../css/style.css';
 
 function List() {
@@ -7,6 +9,20 @@ function List() {
   const token = localStorage.getItem('token');
   // verification token, making the component only for users that had tokens
 
+  const [movieList, setMovieList] = useState([]);
+
+  useEffect(() => {
+    const endPoint = "https://api.themoviedb.org/3/discover/movie?api_key=e89813675e342efb3edc61f9269a4f1a";
+    // hacemos el resquest al API de esta forma
+    axios.get(endPoint)
+      .then(res => {
+        const apiData = res.data;
+        // guardamos la data del API en un state de esta forma
+        setMovieList(apiData.results);
+      })
+  }, [])
+
+  console.log(movieList);
 
   return (
     <>
