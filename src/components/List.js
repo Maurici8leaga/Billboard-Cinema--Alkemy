@@ -24,24 +24,32 @@ function List() {
 
   console.log(movieList);
 
+  // const {title, overview, poster_path} = movieList;
+
   return (
     <>
-    {/* de esta forma se protege la ruta, de manera que si no se tiene token no entre al component */}
-      {!token && <Navigate to="/" /> }
+      {/* de esta forma se protege la ruta, de manera que si no se tiene token no entre al component */}
+      {!token && <Navigate to="/" />}
 
       <div className="container">
         <div className="content-wrap">
           <div className="row">
-            <div className="col-4" >
-              <div className="card">
-                <img src="https://www.viewhotels.jp/ryogoku/wp-content/uploads/sites/9/2020/03/test-img.jpg" className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="card-title">Movie title</h5>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <Link to="/*" className="btn btn-primary">Go somewhere</Link>
+            {movieList.map((movie, index) => {
+              const {title, overview, poster_path} = movie;
+
+               return (
+                <div className="col-3" key={index}>
+                  <div className="card my-4">
+                    <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="card-img-top" alt="..." />
+                    <div className="card-body">
+                      <h5 className="card-title">{title.substring(0, 30)}...</h5>
+                      <p className="card-text">{overview.substring(0, 100)}...</p>
+                      <Link to="/*" className="btn btn-primary">View detail</Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              )
+            })}
           </div>
 
         </div>
