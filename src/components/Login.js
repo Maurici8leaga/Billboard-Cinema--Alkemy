@@ -58,7 +58,7 @@ function Login() {
                 });
                 // setting the token
                 const tokenInbound = res.data.token;
-                localStorage.setItem('token', tokenInbound);
+                sessionStorage.setItem('token', tokenInbound);
                 // 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
 
                 // redirect after login
@@ -67,7 +67,7 @@ function Login() {
     }
 
     // if the user is already loged, then
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     // este const es solo para usarlo en verificacion y proteccion de la ruta
 
 

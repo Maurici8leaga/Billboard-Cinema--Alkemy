@@ -8,7 +8,7 @@ import swAlert from '@sweetalert/with-react';
 function List() {
 
   // usamos el token en este component para proteger las rutas
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
   // verification token, making the component only for users that had tokens
 
   const [movieList, setMovieList] = useState([]);
@@ -27,12 +27,11 @@ function List() {
           title: 'Hubo un problema, intenta mas tarde',
           icon: "error"
         })
+        console.warn(error);
       })
   }, [])
 
   console.log(movieList);
-
-  // const {title, overview, poster_path} = movieList;
 
   return (
     <>
@@ -43,7 +42,7 @@ function List() {
         <div className="content-wrap">
           <div className="row">
             {movieList.map((movie, index) => {
-              const {title, overview, poster_path} = movie;
+              const {title, overview, poster_path, id} = movie;
 
                return (
                 <div className="col-3" key={index}>
@@ -51,8 +50,9 @@ function List() {
                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="card-img-top" alt="..." />
                     <div className="card-body">
                       <h5 className="card-title">{title.substring(0, 30)}...</h5>
+                        {/* aca el substring lo que hace es recortar el texto y resumirlo a la cantidad de palabras que se desee */}
                       <p className="card-text">{overview.substring(0, 100)}...</p>
-                      <Link to="/*" className="btn btn-primary">View detail</Link>
+                      <Link to={`/movieDetail?movieID=${id}`} className="btn btn-primary">View detail</Link>
                     </div>
                   </div>
                 </div>
