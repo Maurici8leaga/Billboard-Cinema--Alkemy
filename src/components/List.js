@@ -2,6 +2,8 @@ import { Link, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/style.css';
+import swAlert from '@sweetalert/with-react';
+
 
 function List() {
 
@@ -19,6 +21,12 @@ function List() {
         const apiData = res.data;
         // guardamos la data del API en un state de esta forma
         setMovieList(apiData.results);
+      })
+      .catch(error => {
+        swAlert({
+          title: 'Hubo un problema, intenta mas tarde',
+          icon: "error"
+        })
       })
   }, [])
 
