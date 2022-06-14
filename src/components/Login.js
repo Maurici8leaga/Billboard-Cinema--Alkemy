@@ -58,6 +58,7 @@ function Login() {
                 });
                 // setting the token
                 const tokenInbound = res.data.token;
+                // sessionStorage es igual que localStorage solo que la diferencia es que sessionStorage borra el token una vez que se cierra la pag
                 sessionStorage.setItem('token', tokenInbound);
                 // 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
 
