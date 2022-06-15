@@ -15,7 +15,8 @@ function List() {
 
   useEffect(() => {
     const endPoint = "https://api.themoviedb.org/3/discover/movie?api_key=e89813675e342efb3edc61f9269a4f1a";
-    // hacemos el resquest al API de esta forma
+    
+    // request al API para tener todas las movies
     axios.get(endPoint)
       .then(res => {
         const apiData = res.data;

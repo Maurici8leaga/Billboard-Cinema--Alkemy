@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 
 const MovieDetail = () => {
@@ -17,7 +19,18 @@ const MovieDetail = () => {
     // /movieDetail?movieID=${id} <- ese es el url que se establecio en el component anterior
 
     useEffect(() => {
-        console.log(movieID);
+        const endPoint = `https://api.themoviedb.org/3/movie/${movieID}?api_key=e89813675e342efb3edc61f9269a4f1a&language=en-US`
+        
+        // endpoint para hacer el request al API del get de la movie detail
+        axios.get(endPoint)
+            .then(res => {
+                const movieData = res.data
+                console.log(movieData)
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        console.log(endPoint);
     }, [])
 
     return (
