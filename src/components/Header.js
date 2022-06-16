@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Searcher from './Searcher';
 
 function Header() {
     return (
@@ -15,6 +16,7 @@ function Header() {
                             <Link to="/list" className="nav-link active text-white-50">Link </Link>
                         </div >
                     </div>
+                    <Searcher/>
                 </div>
             </nav>
         </header>
