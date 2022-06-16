@@ -32,8 +32,6 @@ function List() {
       })
   }, [])
 
-  console.log(movieList);
-
   return (
     <>
       {/* de esta forma se protege la ruta, de manera que si no se tiene token no entre al component */}
