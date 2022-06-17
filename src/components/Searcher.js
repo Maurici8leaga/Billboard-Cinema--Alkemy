@@ -1,9 +1,12 @@
 import React from 'react';
 import swAlert from '@sweetalert/with-react';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Searcher = () => {
+
+    const navigate = useNavigate();
 
     const submitHandler = e => {
         e.preventDefault();
@@ -24,7 +27,10 @@ const Searcher = () => {
                 icon: "warning"
             })
         }
-
+        else{
+            e.currentTarget.keyword.value = '';
+            navigate(`/results?keyword=${keyword}`);
+        }
     }
 
     return (
