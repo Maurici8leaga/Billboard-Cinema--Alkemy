@@ -13,7 +13,8 @@ function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <div className="navbar-nav">
                             <Link to="/" className="nav-link active text-white-50">Home </Link>
-                            <Link to="/list" className="nav-link active text-white-50">Link </Link>
+                            <Link to="/list" className="nav-link active text-white-50">List </Link>
+                            <Link to="/favorites" className="nav-link active text-white-50">Favorites </Link>
                         </div >
                     </div>
                     <Searcher/>
