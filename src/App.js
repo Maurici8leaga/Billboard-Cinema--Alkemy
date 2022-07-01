@@ -1,6 +1,7 @@
 import Login from './components/Login';
 import { Routes, Route } from 'react-router-dom';
 // Routes cambio por switch, que es el que permite cambiar de un componente a otro y Route identifica que componente cargar
+import { useState, useEffect } from 'react';
 import List from './components/List';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -9,6 +10,21 @@ import Results from './components/Results';
 import Favorites from './components/Favorites';
 
 function App() {
+
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    // request the movies that are saved in localStorage
+    const favsInLocal = localStorage.getItem('favs');
+
+    if (favsInLocal !== null) {
+      const favsArray = JSON.parse(favsInLocal);
+      // act the state with the info of localStorage
+      setFavorites(favsArray);
+      console.log(favsArray)
+    }
+  }, [])
+
 
   const addOrRemoveFavs = e => {
 
@@ -46,6 +62,8 @@ function App() {
       // save the movie in fav
       tempMoviesInFavs.push(movieData);
       localStorage.setItem('favs', JSON.stringify(tempMoviesInFavs));
+      // refresh the state with new movie
+      setFavorites(tempMoviesInFavs);
       console.log('Movie saved in favs movies');
     } else {
       // remove the movie
@@ -53,20 +71,22 @@ function App() {
         return oneMovie.id !== movieData.id
       });
       localStorage.setItem('favs', JSON.stringify(moviesLeft));
+      // refresh the state without the movie
+      setFavorites(moviesLeft);
       console.log('Movie removed from favs movies');
     }
   }
 
   return (
     <>
-      <Header />
+      <Header favorites={favorites}/>
 
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/list" element={<List props={true} addOrRemoveFavs={addOrRemoveFavs} />} />
         <Route path="/movieDetail" element={<MovieDetail />} />
-        <Route path="/results" element={<Results />} />
-        <Route path="/favorites" element={<Favorites/> } />
+        <Route path="/results" element={<Results props={true} addOrRemoveFavs={addOrRemoveFavs}/>} />
+        <Route path="/favorites" element={<Favorites props={true} addOrRemoveFavs={addOrRemoveFavs} favorites={favorites} />} />
       </Routes>
 
       <Footer />

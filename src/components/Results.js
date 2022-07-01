@@ -4,19 +4,17 @@ import { Link, useSearchParams } from 'react-router-dom';
 import swAlert from '@sweetalert/with-react';
 
 
-const Results = () => {
+const Results = (props) => {
 
     let [searchParams] = useSearchParams();
     // usamos en este component useSearchParams porque con URLSearchParams(window.location.search); pero este hace lo mismo que el anterior metodo 
     const keyword = searchParams.get('keyword');
     // se crea una var igaul y con el method get se coloca el nombre del key y quedara almacenado en la var
-    
+
     const [moviesResults, setMoviesResults] = useState([]);
-    
-    
+
+
     useEffect(() => {
-
-
         const endPoint = `https://api.themoviedb.org/3/search/movie?api_key=e89813675e342efb3edc61f9269a4f1a&language=en-US&query=${keyword}`;
 
         // endpoint para hacer el request al API del get de las movies search
@@ -36,7 +34,6 @@ const Results = () => {
             .catch(error => {
                 console.warn(error);
             })
-        
     }, [keyword])
 
     return (
@@ -55,6 +52,10 @@ const Results = () => {
                             <div className="col-3" key={index}>
                                 <div className="card my-4">
                                     <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="card-img-top" alt="..." />
+                                    <button className="favorite-btn" onClick={props.addOrRemoveFavs} data-movie-id={id}>
+                                        {/* este prop "data-movie-id" esta para que pueda capturarse el id de cada movie que se le de como fav, debe escribirse SIEMPRE con "data-" y lo demas en minuscula */}
+                                        🖤
+                                    </button>
                                     <div className="card-body">
                                         <h5 className="card-title">{title.substring(0, 30)}...</h5>
                                         {/* aca el substring lo que hace es recortar el texto y resumirlo a la cantidad de palabras que se desee */}

@@ -6,6 +6,7 @@ import swAlert from '@sweetalert/with-react';
 
 
 function List(props) {
+  // dentro de props esta pasandose la funcion "addOrRemoveFavs" como propiedad del objeto props
 
   // usamos el token en este component para proteger las rutas
   const token = sessionStorage.getItem('token');
