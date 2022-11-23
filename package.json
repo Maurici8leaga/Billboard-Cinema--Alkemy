@@ -1,6 +1,7 @@
 {
 	"name": "frontend-challenge",
 	"version": "0.1.0",
+	"homepage": "https://maurici8leaga.github.io/Billboard-Cinema--Alkemy",
 	"private": true,
 	"dependencies": {
 		"@sweetalert/with-react": "^0.1.1",
