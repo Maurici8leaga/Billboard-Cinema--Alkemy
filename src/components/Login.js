@@ -48,8 +48,8 @@ function Login() {
 
 		// esto podria ir en un folder llamado actions y convertir esto dentro una funcion y ser llamada aca como un accion
 		axios
-			.post("http://challenge-react.alkemy.org/", { email, password })
-			// .post("", { email, password })
+			.post("/", { email, password })
+			// .post("http://challenge-react.alkemy.org/", { email, password })
 			// el link proporcionado es un simulador de un API el cual este viene del curso
 			.then((res) => {
 				swAlert({
