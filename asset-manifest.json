@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Billboard-Cinema--Alkemy/static/css/main.34dcc614.css",
-    "main.js": "/Billboard-Cinema--Alkemy/static/js/main.acda5c20.js",
+    "main.js": "/Billboard-Cinema--Alkemy/static/js/main.f24bea33.js",
     "index.html": "/Billboard-Cinema--Alkemy/index.html",
     "main.34dcc614.css.map": "/Billboard-Cinema--Alkemy/static/css/main.34dcc614.css.map",
-    "main.acda5c20.js.map": "/Billboard-Cinema--Alkemy/static/js/main.acda5c20.js.map"
+    "main.f24bea33.js.map": "/Billboard-Cinema--Alkemy/static/js/main.f24bea33.js.map"
   },
   "entrypoints": [
     "static/css/main.34dcc614.css",
-    "static/js/main.acda5c20.js"
+    "static/js/main.f24bea33.js"
   ]
 }
