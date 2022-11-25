@@ -42,28 +42,40 @@ function Login() {
 				icon: "error",
 			});
 		}
+
+		if (email === "challenge@alkemy.org" && password === "react") {
+			swAlert({
+				title: "Okey, you are ready",
+				icon: "success",
+			});
+
+			const tokenInbound = "ee3b9a9d-fa82-4b15-952b-743ab988386b";
+			sessionStorage.setItem("token", tokenInbound);
+
+			navigate("/list");
+		}
 		// <-----------    ------------------------->
 
 		// <----  envio de datos al API (peticiones http) --->
 
 		// esto podria ir en un folder llamado actions y convertir esto dentro una funcion y ser llamada aca como un accion
-		axios
-			.post("/", { email, password })
-			// el link proporcionado es un simulador de un API el cual este viene del curso
-			.then((res) => {
-				swAlert({
-					title: "Okey, you are ready",
-					icon: "success",
-				});
-				// setting the token
-				const tokenInbound = res.data.token;
-				// sessionStorage es igual que localStorage solo que la diferencia es que sessionStorage borra el token una vez que se cierra la pag
-				sessionStorage.setItem("token", tokenInbound);
-				// 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
+		// axios
+		// 	.post("http://challenge-react.alkemy.org/", { email, password })
+		// 	// el link proporcionado es un simulador de un API el cual este viene del curso
+		// 	.then((res) => {
+		// 		swAlert({
+		// 			title: "Okey, you are ready",
+		// 			icon: "success",
+		// 		});
+		// 		// setting the token
+		// 		const tokenInbound = res.data.token;
+		// 		// sessionStorage es igual que localStorage solo que la diferencia es que sessionStorage borra el token una vez que se cierra la pag
+		// 		sessionStorage.setItem("token", tokenInbound);
+		// 		// 1er argumento es el nombre del elemento que queremos, el 2do el contenido que queremos almacenar en el 1er argumento
 
-				// redirect after login
-				navigate("/list");
-			});
+		// 		// redirect after login
+		// 		navigate("/list");
+		// 	});
 	};
 
 	// if the user is already loged, then
@@ -77,7 +89,7 @@ function Login() {
 
 			<div className=" container-form mt-5">
 				<div className="content-wrap">
-					<h2 className="text-center mb-3">Formu</h2>
+					<h2 className="text-center mb-3">Formulario Login</h2>
 					<form onSubmit={submitHandler}>
 						<div className="mb-3">
 							<label className="form-label">Correo Electronico:</label>
