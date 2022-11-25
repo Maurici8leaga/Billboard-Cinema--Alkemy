@@ -49,7 +49,6 @@ function Login() {
 		// esto podria ir en un folder llamado actions y convertir esto dentro una funcion y ser llamada aca como un accion
 		axios
 			.post("/", { email, password })
-			// .post("http://challenge-react.alkemy.org/", { email, password })
 			// el link proporcionado es un simulador de un API el cual este viene del curso
 			.then((res) => {
 				swAlert({
@@ -78,7 +77,7 @@ function Login() {
 
 			<div className=" container-form mt-5">
 				<div className="content-wrap">
-					<h2 className="text-center mb-3">Formulario Login</h2>
+					<h2 className="text-center mb-3">Formu</h2>
 					<form onSubmit={submitHandler}>
 						<div className="mb-3">
 							<label className="form-label">Correo Electronico:</label>
