@@ -1,33 +1,31 @@
-.container-form{
-    max-width: 350px;
-    min-height: 100vh;
-    margin: auto;
-    position: relative;
+.container-form {
+	max-width: 350px;
+	min-height: 100vh;
+	margin: auto;
+	position: relative;
 }
 
-.content-wrap{
-    padding-bottom: 2.5rem;
+.content-wrap {
+	padding-bottom: 2.5rem;
 }
 
-.footer{
-    /* position: absolute;
-    position: fixed; */
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;  
+.footer {
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem;
 }
 
-.favorite-btn{
-    width: 30px;
-    height: 30px;
-    background-color: #f2f2f2;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    border: none;
-    font-size: 13px;
+.favorite-btn {
+	width: 30px;
+	height: 30px;
+	background-color: #f2f2f2;
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	border: none;
+	font-size: 13px;
 }

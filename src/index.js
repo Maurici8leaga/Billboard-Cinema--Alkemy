@@ -7,7 +7,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<BrowserRouter basename="/Billboard-Cinema--Alkemy">
-			{/* el BrowserRouter permite gestionar el browser page aplication permitiendo ingresar a una ruta o redireccionamiento */}
 			<App />
 		</BrowserRouter>
 	</React.StrictMode>

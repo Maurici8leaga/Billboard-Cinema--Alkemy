@@ -14,6 +14,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+Once the page loads, it will ask for an email and password, by default there is only one email and password because this page is created only for Alkemy staff, but if you are not Alkemy staff but still you want to see the project in this reading .I will give you the email and the password;
+
+email: challenge@alkemy.org
+password: react
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
